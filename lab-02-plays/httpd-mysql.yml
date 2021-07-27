@@ -9,3 +9,9 @@
   tasks:
   - name: Install mysql on dbservers
     yum: name=mysql-server state=present
+
+-hosts: appservers
+ become: true
+ tasks:
+ - name: Install Java on appservers
+   yum: name:java-1.8.0-openjdk state=present
