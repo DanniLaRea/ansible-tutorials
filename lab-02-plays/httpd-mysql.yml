@@ -7,5 +7,5 @@
 - hosts: dbservers
   become: true
   tasks:
-  - name: Install mysql on webservers
+  - name: Install mysql on dbservers
     yum: name=mysql-server state=present
