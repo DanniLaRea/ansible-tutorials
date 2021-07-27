@@ -8,10 +8,10 @@
         state: installed
       when: ansible_distribution == "RedHat"
 
-    - yum:
-        pkg: httpd
-        state: installed
-      when: ansible_distribution == "Amazon"
+    #- yum:
+    #    pkg: httpd
+    #    state: installed
+    #  when: ansible_distribution == "Amazon"
 
 
     - apt:
