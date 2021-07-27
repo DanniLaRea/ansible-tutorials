@@ -1,0 +1,11 @@
+- hosts: webservers
+  become: true
+  tasks:
+  - name: Install httpd on webservers
+    yum: name=httpd state=present
+
+- hosts: dbservers
+  become: true
+  tasks:
+  - name: Install mysql on webservers
+  - yum: name=mysql state=present
