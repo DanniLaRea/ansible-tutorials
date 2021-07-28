@@ -1,0 +1,12 @@
+- name: Install Apache Web Server on CentOS
+  yum:
+   name=httpd
+   state=present
+  when: ansible_distribution == "CentOS"
+
+- name: Install Apache Web Server on Ubuntu
+  apt:
+   name=apache2
+   state=present
+  when: ansible_distribution == "Ubuntu"
+

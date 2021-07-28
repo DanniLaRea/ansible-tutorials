@@ -1,0 +1,11 @@
+- name: Install mysql-server on CentOS
+  yum:
+   name=mysql-server
+   state=present
+  when: ansible_distribution == "CentOS"
+
+- name: Install mysql-server on Ubuntu
+  apt:
+   name=mysql-server
+   state=present
+  when: ansible_distribution == "Ubuntu"
