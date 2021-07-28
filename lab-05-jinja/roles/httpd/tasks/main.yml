@@ -1,14 +1,27 @@
 ---
-- name: Install httpd server
+- name: Install httpd server on CentOS
   yum: name=httpd state=present
+  when: ansible_distribution == "CentOS"
 
-- name: Start httpd
+- name: Install Apache2 server on Ubuntu
+  apt:
+   name=apache2
+   state=present
+  when: ansible_distribution == "Ubuntu"
+
+- name: Start httpd on CentOS
   service: name=httpd state=started enabled=yes
+  when: ansible_distribution == "CentOS"
+
+- name: Start Apache2 on Ubuntu
+  service: name=apache2 state=started enabled=yes
+  when: ansible_distribution == "Ubuntu"
 
 - name: Update httpd default config
   copy: src=httpd.conf dest=/etc/httpd/conf/
   notify:
     - Reload httpd configuration
+  when: ansible_distribution == "CentOS"
 
 - name: Flush handlers
   meta: flush_handlers

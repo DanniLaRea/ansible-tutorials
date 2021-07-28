@@ -2,4 +2,7 @@
 - hosts: webservers # Host or Group of Selections
   roles:
    - web
-   - db
+
+- hosts: test
+  roles:
+  - db

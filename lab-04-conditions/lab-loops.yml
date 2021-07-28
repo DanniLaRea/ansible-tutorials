@@ -1,0 +1,22 @@
+- hosts: webservers
+  tasks:
+  - name: Creating folders with names
+    file:
+     path: /home/{{ item  }}
+     state: directory
+     mode: '0775'
+    with_items:
+     - yelp
+     - google
+     - apple
+     - yahoo
+     - allstate
+
+  - name: Installing packages
+    yum: name={{ item }} state=present
+    with_items:
+     - mlocate
+     - strace
+     - java-1.8.0-openjdk
+     - php
+  

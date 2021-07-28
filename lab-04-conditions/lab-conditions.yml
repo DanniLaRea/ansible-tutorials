@@ -1,0 +1,12 @@
+- hosts: webservers
+  become: true
+  gather_facts: no
+  vars: 
+   x: 45
+   y: 55
+
+  tasks:
+  - name: Copy inventory_hostname if condition is met
+    template:
+     src: demo.j2
+     dest: /tmp/example3.txt

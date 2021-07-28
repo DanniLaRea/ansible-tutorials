@@ -2,7 +2,7 @@
 147.182.184.215 ansible_user=root ansible_ssh_private_key_file=~/ansible.pem
 
 [dbservers]
-147.182.184.215
+143.198.183.56
 
 [appservers]
 147.182.184.215

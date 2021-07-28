@@ -4,3 +4,10 @@
   roles:
     - ntp
     - httpd
+
+- hosts: dbservers
+  become: true
+  roles:
+   - ntp
+   - httpd
+   - mysql
