@@ -1,6 +1,11 @@
 ---
-- name: Install ntp service
-  yum: name=ntp state=present
+- name: Install ntp service on CentOS
+  yum: name=chrony state=present
+  when: ansible_distribution == "CentOS"
+
+- name: Install ntp service on Ubuntu 
+  apt: name=chrony state=present
+  when: ansible_distribution == "Ubuntu"
 
 - name: Start ntp service
-  service: name=ntpd state=started enabled=yes
+  service: name=chronyd state=started enabled=yes
