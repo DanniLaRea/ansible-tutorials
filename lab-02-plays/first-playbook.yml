@@ -3,6 +3,6 @@
   roles:
    - web
 
-- hosts: test
+- hosts: dbservers 
   roles:
   - db
