@@ -1,4 +1,4 @@
-- hosts: node01
+- hosts: webservers 
   gather_facts: true
   vars:
     my_name: Chandan
@@ -8,10 +8,10 @@
         state: installed
       when: ansible_distribution == "RedHat"
 
-    #- yum:
-    #    pkg: httpd
-    #    state: installed
-    #  when: ansible_distribution == "Amazon"
+    - yum:
+        pkg: httpd
+        state: installed
+      when: ansible_distribution == "Amazon"
 
 
     - apt:
@@ -74,3 +74,10 @@
   name: Running group var debugs for appservers
   tasks:
     - debug: var=testname
+
+- hosts: test 
+  vars_prompt:
+   - name: username
+     prompt: Enter name
+  tasks:
+   - debug: {{username}}

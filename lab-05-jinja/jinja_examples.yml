@@ -1,11 +1,10 @@
 - hosts: webservers
   vars:
-    user_name: Chandan
+    user_name: Danni
   tasks:
     - template:
         src: example-template.j2
         dest: /tmp/jinta-output
-    - debug: var=play_hosts
 
 - hosts: webservers
   vars:
